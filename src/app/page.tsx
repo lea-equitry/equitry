@@ -12,15 +12,17 @@ const services = [
     icon: '🏇',
     title: 'Location courte durée',
     description: 'Vestes de concours, tapis de selle. À partir de 20€/jour, tarifs dégressifs. Livraison partout en France.',
-    href: '/location-courte-duree',
+    href: 'https://equitry-location.fr/',
     cta: 'Voir les tarifs',
+    external: true,
   },
   {
     icon: '🔄',
     title: 'Abonnement mensuel',
     description: 'Veste de concours à 49€/mois ou pantalon Horse Pilot à 29€/mois. Un échange par mois, sans engagement long terme.',
     href: '/abonnement',
-    cta: 'Découvrir l\'abonnement',
+    cta: "Découvrir l'abonnement",
+    external: false,
   },
   {
     icon: '📡',
@@ -28,11 +30,12 @@ const services = [
     description: 'Equisense et capteurs de rênes disponibles à la location. Analysez votre pratique sans investissement.',
     href: '/capteurs',
     cta: 'Voir les capteurs',
+    external: false,
   },
 ]
 
 const stats = [
-  { value: '183+', label: 'Cavaliers nous font confiance' },
+  { value: '1 000+', label: 'Cavaliers nous font confiance' },
   { value: '3 ans', label: "D'expérience dans la location équestre" },
   { value: 'France', label: 'Livraison sur tout le territoire' },
   { value: '48h', label: 'Délai de livraison moyen' },
@@ -42,7 +45,7 @@ const howItWorks = [
   { step: '01', title: 'Choisissez', desc: 'Sélectionnez votre équipement et vos dates en ligne.' },
   { step: '02', title: 'Recevez', desc: 'Votre matériel arrive chez vous ou en point relais sous 48h.' },
   { step: '03', title: 'Profitez', desc: 'Utilisez votre équipement pour votre concours ou entraînement.' },
-  { step: '04', title: 'Retournez', desc: 'Renvoyez simplement le matériel dans l\'emballage fourni.' },
+  { step: '04', title: 'Retournez', desc: "Renvoyez simplement le matériel dans l'emballage fourni." },
 ]
 
 export default function HomePage() {
@@ -50,10 +53,10 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="min-h-screen flex items-center bg-gradient-to-br from-cream via-cream to-sage-lighter/20 pt-16">
-        <div className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <p className="font-poppins text-xs font-semibold tracking-[0.3em] uppercase text-sage mb-6">
-              Location équestre en France
+              Location de matériel équestre en France
             </p>
             <h1 className="font-poppins font-bold text-5xl md:text-6xl lg:text-7xl text-sage-darkest leading-[1.1] mb-6">
               Louez votre<br />
@@ -61,34 +64,34 @@ export default function HomePage() {
               équestre
             </h1>
             <p className="font-poppins font-light text-lg text-sage-dark leading-relaxed mb-10 max-w-lg">
-              Vestes de concours, tapis de selle, capteurs connectés. 
+              Vestes de concours, tapis de selle, capteurs connectés.
               À la journée ou par abonnement mensuel, livré partout en France.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/location-courte-duree" className="btn-primary">
+              <a href="https://equitry-location.fr/" className="btn-primary">
                 Réserver maintenant
-              </Link>
+              </a>
               <Link href="/comment-ca-marche" className="btn-outline">
                 Comment ça marche
               </Link>
             </div>
             <p className="font-poppins font-light text-sm text-sage-light mt-6 italic">
-              À partir de 20€/jour · Livraison incluse · Retour simple
+              À partir de 20€/jour · Pressing inclus · Livraison au choix · Retour simple
             </p>
           </div>
 
           {/* Visuel hero */}
           <div className="relative hidden lg:block">
-            <div className="w-full aspect-square rounded-sm bg-sage-lighter/20 border border-sage-lighter/30 flex items-center justify-center">
+            <div className="w-full aspect-[4/3] rounded-sm overflow-hidden">
               <img
-                src="/logo.png"
-                alt="Equitry location matériel équestre"
-                className="w-2/3 opacity-20"
+                src="/hero.png"
+                alt="Cavalières en vestes de concours Equitry"
+                className="w-full h-full object-cover"
               />
             </div>
             {/* Badge flottant */}
             <div className="absolute -bottom-4 -left-4 bg-white border border-sage-lighter/30 rounded-sm p-4 shadow-lg">
-              <p className="font-poppins font-bold text-2xl text-sage-dark">183+</p>
+              <p className="font-poppins font-bold text-2xl text-sage-dark">1 000+</p>
               <p className="font-poppins font-light text-xs text-sage-light">cavaliers nous font confiance</p>
             </div>
             <div className="absolute -top-4 -right-4 bg-sage-dark text-cream rounded-sm p-4 shadow-lg">
@@ -127,9 +130,15 @@ export default function HomePage() {
                 <span className="text-4xl mb-6 block">{s.icon}</span>
                 <h3 className="font-poppins font-bold text-xl text-sage-darkest mb-4">{s.title}</h3>
                 <p className="font-poppins font-light text-sage-dark leading-relaxed mb-8">{s.description}</p>
-                <Link href={s.href} className="font-poppins text-sm font-semibold text-sage-dark hover:text-sage-darkest transition-colors tracking-wide uppercase border-b border-sage pb-1">
-                  {s.cta} →
-                </Link>
+                {s.external ? (
+                  <a href={s.href} className="font-poppins text-sm font-semibold text-sage-dark hover:text-sage-darkest transition-colors tracking-wide uppercase border-b border-sage pb-1">
+                    {s.cta} →
+                  </a>
+                ) : (
+                  <Link href={s.href} className="font-poppins text-sm font-semibold text-sage-dark hover:text-sage-darkest transition-colors tracking-wide uppercase border-b border-sage pb-1">
+                    {s.cta} →
+                  </Link>
+                )}
               </div>
             ))}
           </div>
@@ -166,10 +175,10 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <p className="font-poppins text-xs font-semibold tracking-[0.3em] uppercase text-sage mb-4">Nouveau</p>
           <h2 className="section-title mb-6">
-            L'abonnement équestre,<br />une première en France
+            {"L'abonnement équestre,"}<br />une première en France
           </h2>
           <p className="font-poppins font-light text-lg text-sage-dark leading-relaxed mb-10 max-w-2xl mx-auto">
-            Equitry est le premier service d'abonnement à l'équipement équestre en France. 
+            {"Equitry est le premier service d'abonnement à l'équipement équestre en France."}
             Accédez à du matériel haut de gamme dès 29€/mois, sans investissement.
           </p>
           <div className="flex flex-wrap justify-center gap-6 mb-12">
@@ -185,7 +194,7 @@ export default function HomePage() {
             </div>
           </div>
           <Link href="/abonnement" className="btn-primary">
-            Découvrir l'abonnement
+            {"Découvrir l'abonnement"}
           </Link>
         </div>
       </section>
