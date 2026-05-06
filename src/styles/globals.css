@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sage: #738C86;
+  --sage-dark: #5C706B;
+  --sage-darker: #5A726D;
+  --sage-darkest: #323D3B;
+  --sage-light: #9AAEA9;
+  --sage-lighter: #BCCDC5;
+  --cream: #FFFAF5;
+  --taupe: #CCBCA9;
+  --noir: #010101;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--cream);
+    color: var(--sage-darkest);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #323D3B;
+  }
+
+  p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  blockquote, cite, .citation {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    line-height: 1.8;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-sage-dark text-cream font-poppins font-semibold px-8 py-3 rounded-sm 
+           hover:bg-sage-darkest transition-all duration-300 tracking-wide uppercase text-sm
+           inline-block text-center;
+  }
+
+  .btn-outline {
+    @apply border-2 border-sage-dark text-sage-dark font-poppins font-semibold px-8 py-3 rounded-sm 
+           hover:bg-sage-dark hover:text-cream transition-all duration-300 tracking-wide uppercase text-sm
+           inline-block text-center;
+  }
+
+  .section-title {
+    @apply font-poppins font-bold text-3xl md:text-4xl text-sage-darkest leading-tight;
+  }
+
+  .section-subtitle {
+    @apply font-poppins font-light text-sage-light text-lg mt-4 leading-relaxed;
+  }
+
+  .card {
+    @apply bg-white border border-sage-lighter/30 rounded-sm p-8 
+           hover:shadow-lg hover:shadow-sage/10 transition-all duration-300;
+  }
+
+  .text-body {
+    @apply font-poppins font-light text-sage-dark leading-relaxed;
+  }
+
+  .text-citation {
+    @apply font-lora italic text-sage-dark leading-relaxed;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-delay-100 { animation-delay: 0.1s; opacity: 0; }
+.animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
+.animate-delay-300 { animation-delay: 0.3s; opacity: 0; }
+.animate-delay-400 { animation-delay: 0.4s; opacity: 0; }
+
+/* Ligne décorative Equitry */
+.equitry-divider {
+  width: 60px;
+  height: 2px;
+  background: #738C86;
+  margin: 1rem 0;
+}
