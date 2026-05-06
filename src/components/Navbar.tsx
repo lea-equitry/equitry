@@ -44,7 +44,7 @@ export default function Navbar() {
 
         {/* CTA desktop */}
         <div className="hidden lg:block">
-          <Link href="/location-courte-duree" className="btn-primary text-xs py-2 px-6">
+          <a href="https://equitry-location.fr/" className="btn-primary text-xs py-2 px-6">
             Réserver
           </Link>
         </div>
@@ -74,7 +74,7 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link href="/location-courte-duree" className="btn-primary mt-2 text-center text-xs">
+          <Link href="https://equitry-location.fr/" className="btn-primary mt-2 text-center text-xs">
             Réserver
           </Link>
         </div>
