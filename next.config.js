@@ -9,10 +9,10 @@ const nextConfig = {
       {
         source: '/(.*)',
         headers: [
-          // Empêche le clickjacking (intégration dans une iframe)
+          // Autorise iframe uniquement depuis Vercel (pour la prévisualisation dashboard)
           {
             key: 'X-Frame-Options',
-            value: 'SAMEORIGIN',
+            value: 'ALLOW-FROM https://vercel.com',
           },
           // Empêche le sniffing de type MIME
           {
@@ -24,7 +24,7 @@ const nextConfig = {
             key: 'Strict-Transport-Security',
             value: 'max-age=31536000; includeSubDomains; preload',
           },
-          // Contrôle les infos envoyées au site suivant (referrer)
+          // Contrôle les infos envoyées au site suivant
           {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin',
@@ -39,7 +39,7 @@ const nextConfig = {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
           },
-          // Content Security Policy — autorise uniquement les sources légitimes
+          // Content Security Policy
           {
             key: 'Content-Security-Policy',
             value: [
@@ -49,7 +49,7 @@ const nextConfig = {
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: blob: https://static.wixstatic.com",
               "connect-src 'self' https://formspree.io",
-              "frame-src 'none'",
+              "frame-ancestors 'self' https://vercel.com",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self' https://formspree.io",
