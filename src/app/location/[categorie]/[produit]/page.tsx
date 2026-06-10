@@ -57,9 +57,6 @@ export default function ProduitPage({
                 src={produit.image}
                 alt={produit.nom}
                 className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/placeholder-produit.jpg'
-                }}
               />
             </div>
 
@@ -144,9 +141,6 @@ export default function ProduitPage({
                       src={p.image}
                       alt={p.nom}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = '/placeholder-produit.jpg'
-                      }}
                     />
                   </div>
                   <p className="font-poppins text-xs text-sage-light uppercase tracking-widest mb-1">{p.marque}</p>
