@@ -36,9 +36,6 @@ export default function EquisensePage() {
                 src="/capteurs/equisense.jpg"
                 alt="Capteur Equisense Motion"
                 className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/placeholder-produit.jpg'
-                }}
               />
             </div>
 
