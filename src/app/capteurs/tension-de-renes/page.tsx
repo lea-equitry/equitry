@@ -36,9 +36,6 @@ export default function TensionDeRenesPage() {
                 src="/capteurs/safe-hp-ally.jpg"
                 alt="Capteur Safe HP Ally tension de rênes"
                 className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/placeholder-produit.jpg'
-                }}
               />
             </div>
 
