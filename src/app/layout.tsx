@@ -1,7 +1,11 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import '../styles/globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+
+export const viewport: Viewport = {
+  themeColor: '#738C86',
+}
 
 export const metadata: Metadata = {
   title: {
@@ -58,12 +62,8 @@ export const metadata: Metadata = {
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
-    other: [
-      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#738C86' },
-    ],
   },
   manifest: '/site.webmanifest',
-  themeColor: '#738C86',
 }
 
 export default function RootLayout({
