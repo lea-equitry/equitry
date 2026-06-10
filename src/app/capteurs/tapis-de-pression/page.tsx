@@ -36,9 +36,6 @@ export default function TapisDePresionPage() {
                 src="/capteurs/safe-hp-tapis.jpg"
                 alt="Tapis capteur de pressions Safe HP"
                 className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/placeholder-produit.jpg'
-                }}
               />
             </div>
 
